@@ -6,796 +6,280 @@
   <title>SCOOT SHOP — N7PRO & N7MAX</title>
   <meta name="description" content="SCOOT SHOP: N7PRO para ciudad y N7MAX para máxima potencia. Envío rápido y garantía oficial." />
 
-  <!-- Open Graph / Twitter -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="SCOOT SHOP — N7PRO & N7MAX -60% DTO">
-  <meta property="og:description" content="N7PRO para ciudad, N7MAX para máxima potencia. Envío 6–8 días. Garantía 2 años.">
-  <meta property="og:image" content="https://tudominio.com/Img-N7MAX/1.jpg">
-  <meta property="og:url" content="https://tudominio.com/">
-  <meta name="twitter:card" content="summary_large_image">
-
-  <!-- Datos estructurados SEO -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Product",
-    "name":"N7MAX",
-    "brand":{"@type":"Brand","name":"SCOOT SHOP"},
-    "image":[
-      "https://tudominio.com/Img-N7MAX/1.jpg",
-      "https://tudominio.com/Img-N7MAX/2.jpg",
-      "https://tudominio.com/Img-N7MAX/3.jpg"
-    ],
-    "description":"Patinete eléctrico N7MAX: 800W, 50 km autonomía, hasta 55 km/h (uso privado).",
-    "sku":"N7MAX",
-    "offers":{
-      "@type":"Offer",
-      "priceCurrency":"EUR",
-      "price":"375.00",
-      "availability":"https://schema.org/InStock",
-      "url":"https://tudominio.com/#n7max"
-    },
-    "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"128"}
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Product",
-    "name":"N7PRO",
-    "brand":{"@type":"Brand","name":"SCOOT SHOP"},
-    "image":[
-      "https://tudominio.com/Img-N7PRO/1.jpg",
-      "https://tudominio.com/Img-N7PRO/2.jpg",
-      "https://tudominio.com/Img-N7PRO/3.jpg"
-    ],
-    "description":"Patinete eléctrico N7PRO: 350W, 30–35 km autonomía, 30 km/h.",
-    "sku":"N7PRO",
-    "offers":{
-      "@type":"Offer",
-      "priceCurrency":"EUR",
-      "price":"235.00",
-      "availability":"https://schema.org/InStock",
-      "url":"https://tudominio.com/#n7pro"
-    },
-    "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.8","reviewCount":"96"}
-  }
-  </script>
-
-  <!-- Tipografía -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Tipografías -->
   <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap" rel="stylesheet">
+  <!-- Iconos FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
   <style>
-    .tangerine-bold{font-family:"Tangerine",cursive;font-weight:700;text-transform:capitalize;font-size:2.5rem;line-height:1}
-
     :root{
-      --sport-font:'Russo One','Teko','Bebas Neue','Antonio','Impact','Arial Black',sans-serif;
-      --bg:#fff; --ink:#141518; --muted:#5a6272; --line:#e6e9ef;
-      --primary:#b91e1e; --primary-700:#cd1b1b; --ok:#198754;
-      --shadow-lg:0 20px 50px rgba(54,76,132,.6);
-      --shadow-md:0 10px 28px rgba(17,19,24,.12);
-      --shadow-sm:0 6px 16px rgba(17,19,24,.10);
-      --radius-xl:22px; --radius-lg:16px; --radius-md:12px;
+      --sport-font:'Russo One',sans-serif;
+      --bg:#fff; --ink:#141518; --line:#e6e9ef;
+      --primary:#b91e1e; --muted:#555;
+      --radius-lg:16px;
     }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:var(--sport-font);color:var(--ink);background:var(--bg);line-height:1.5;-webkit-font-smoothing:antialiased;letter-spacing:.02em}
+    body.dark{
+      --bg:#0f0f0f; --ink:#f2f2f2; --line:#333; --muted:#bbb;
+      background:var(--bg);color:var(--ink);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:var(--sport-font);background:var(--bg);color:var(--ink);line-height:1.5;overflow-x:hidden}
     img{max-width:100%;display:block}
-    a{color:inherit;text-decoration:none}
-    .container{width:min(1140px,92vw);margin:0 auto}
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1140px,94vw);margin:auto}
 
     /* Header */
-    header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line);box-shadow:var(--shadow-sm);height:64px;display:flex;align-items:center}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
-    .brand{display:flex;align-items:center;gap:12px;font-weight:900;text-transform:uppercase}
-    .brand img{height:90px;width:auto;filter:drop-shadow(0 6px 12px rgba(0,0,0,.15));margin-top:-8px}
+    header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+    .nav{display:flex;justify-content:space-between;align-items:center;padding:10px 0;position:relative}
+    .brand{display:flex;align-items:center;gap:8px}
+    .brand img{height:80px} /* Logo más grande */
+    .brand span{font-family:'Tangerine',cursive;font-size:2rem;color:var(--primary)}
 
-    .nav-right{display:flex;align-items:center;gap:14px}
-    .socials{display:flex;align-items:center;gap:10px;padding-right:6px}
-    .socials a{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:999px;border:1px solid var(--line);background:#fff;box-shadow:var(--shadow-sm);transition:transform .12s ease,border-color .12s ease}
-    .socials a:hover{transform:translateY(-1px);border-color:#e8ebf2}
-    .socials svg{width:18px;height:18px;fill:#4a4f5a;transition:fill .12s ease}
-    .socials a:hover svg{fill:var(--primary)}
-    .nav a.cta{padding:12px 18px;border-radius:999px;background:var(--primary);color:#fff;font-weight:900;border:1px solid transparent;box-shadow:0 12px 26px rgba(230,40,40,.35);text-transform:uppercase;letter-spacing:.04em}
-    .nav a.cta:hover{background:var(--primary-700)}
-
-    /* Ticker */
-    .ticker{background:#141518;color:#fff;border-bottom:1px solid var(--line);box-shadow:var(--shadow-sm);overflow:hidden}
-    .ticker__viewport{width:100%;overflow:hidden}
-    .ticker__track{display:flex;width:max-content;gap:60px;padding:10px 0;animation:tickerMove 14s linear infinite;will-change:transform}
-    .ticker__group{display:flex;align-items:center;gap:60px;padding:0 18px}
-    .ticker__item{text-transform:uppercase;font-weight:900;letter-spacing:.14em;font-size:.92rem;opacity:.95;white-space:nowrap}
-    .ticker__item--brand{color:var(--primary)}
-    .ticker:hover .ticker__track{animation-play-state:paused}
-    @keyframes tickerMove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-
-    /* Hero */
-    .hero{padding:44px 0 28px}
-    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
-    .kicker{color:var(--primary);font-weight:900;text-transform:uppercase;letter-spacing:.18em;font-size:.8rem}
-
-    /* Banner descuento */
-    .sale-banner{ margin:6px 0 10px 0; display:flex; align-items:center; gap:14px; align-self:flex-start; flex-wrap:wrap; }
-    .sale-tag{ width:76px; height:76px; filter: drop-shadow(0 10px 22px rgba(0,0,0,.25)); transform: rotate(-6deg); }
-    .sale-tag img{ width:100%; height:100%; object-fit:contain; }
-    .sale-box{
-      position:relative; display:flex; align-items:center; gap:10px; flex-wrap:wrap;
-      padding:10px 16px; border-radius:14px;
-      background: linear-gradient(135deg,#ffe6e6 0%, #ffffff 55%);
-      border:1px solid #ffd0d0; box-shadow:0 14px 30px rgba(230,40,40,.2);
-      text-transform:uppercase; font-weight:900; letter-spacing:.08em;
+    /* Menú */
+    .menu{display:flex;gap:20px;align-items:center;font-weight:900;text-transform:uppercase;font-size:.95rem}
+    .menu a{display:flex;align-items:center;gap:6px;position:relative;transition:.3s}
+    .menu a::after{
+      content:"";
+      position:absolute;
+      bottom:-3px;
+      left:0;
+      width:100%;
+      height:2px;
+      background:var(--primary);
+      transform:scaleX(0);
+      transform-origin:left;
+      transition:transform .25s ease;
     }
-    .sale-box::after{ content:""; position:absolute; inset:-2px;
-      background: linear-gradient(135deg,transparent 0%, rgba(255,255,255,.7) 35%, transparent 70%);
-      border-radius:14px; filter: blur(6px); pointer-events:none;
-      animation: saleSheen 3.8s ease-in-out infinite;
-    }
-    @keyframes saleSheen{ 0%{ transform:translateX(-30%) translateY(-20%) } 50%{ transform:translateX(0) translateY(0) } 100%{ transform:translateX(30%) translateY(20%) } }
-    .sale-emoji{ font-size:1.35rem }
-    .sale-percent{ background:#b91e1e; color:#fff; padding:6px 10px; border-radius:10px; font-size:1.05rem; }
+    .menu a:hover::after{transform:scaleX(1)}
+    .menu i{font-size:22px;transition:.3s}
+    .menu a:hover i{transform:scale(1.2)}
+    .fa-instagram{color:#E4405F}
+    .fa-facebook{color:#1877F2}
+    .fa-whatsapp{color:#25D366}
 
-    h1.hero-title{
-      font-size:clamp(28px,5vw,50px);
-      margin:10px 0 8px;
-      text-transform:uppercase;letter-spacing:.01em;
-      text-shadow:0 2px 0 rgba(0,0,0,.04),0 10px 30px rgba(0,0,0,.10);
-      display:block;white-space:nowrap;line-height:1.02;
-      transform-origin:left center;will-change:opacity,transform,filter;opacity:0;position:relative
-    }
-    .sub{color:var(--muted);font-size:clamp(14px,2vw,18px)}
-    .badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
-    .badge{border:1px solid var(--line);background:#fff;padding:8px 12px;border-radius:999px;font-weight:800;font-size:.92rem;box-shadow:var(--shadow-sm)}
-    .hero-card{background:#ffffff72;border:1px solid var(--line);border-radius:var(--radius-xl);box-shadow:var(--shadow-lg);padding:20px;display:grid;grid-template-rows:auto 1fr auto;gap:10px}
-    .hero-card .thumb{border-radius:16px;overflow:hidden;background:#f6f7f9;display:grid;place-items:center;border:1px solid #eef1f6;box-shadow:var(--shadow-md)}
-    .hero-card .thumb img{width:100%;height:auto;max-height:500px;object-fit:contain;object-position:center;background:#fff}
+    /* Botón hamburguesa */
+    .menu-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;width:28px;height:22px;justify-content:center;z-index:30}
+    .menu-toggle span{display:block;width:100%;height:3px;background:var(--ink);border-radius:2px;transition:.3s}
+    .menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+    .menu-toggle.active span:nth-child(2){opacity:0}
+    .menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(6px,-6px)}
 
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 20px;border-radius:14px;font-weight:900;border:1px solid transparent;cursor:pointer;background:var(--primary);color:#fff;box-shadow:0 14px 30px rgba(230,40,40,.35);text-transform:uppercase;letter-spacing:.04em;transition:transform .12s ease;min-height:44px;touch-action:manipulation}
-    .btn:hover{transform:translateY(-1px)}
-    .btn--card{background:var(--ok)}
-    .btn-outline{background:#fff;color:#141518;border:1px solid var(--line);box-shadow:var(--shadow-sm)}
-    .btn-outline:hover{border-color:#d9dde7}
-
-    /* Secciones y tarjetas */
-    section{padding:38px 0}
-    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
-    .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius-xl);box-shadow:var(--shadow-lg);overflow:hidden;display:grid;grid-template-rows:auto auto 1fr auto;min-height:100%}
-    .card-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:16px 18px 0 18px}
-    .label{font-weight:900;font-size:1rem;color:#1a1d24;letter-spacing:.06em;text-transform:uppercase}
-    .pill{padding:6px 10px;border-radius:999px;font-weight:800;font-size:.82rem;border:1px solid var(--line);background:#fff;box-shadow:var(--shadow-sm)}
-    .media{padding:18px}
-    .media .img{border-radius:16px;overflow:hidden;display:grid;place-items:center;background:#f6f7f9;border:1px solid #eef1f6;box-shadow:var(--shadow-md);height:650px}
-    .media .img img{width:100%;height:100%;object-fit:contain;object-position:center;background:#f6f7f9}
-
-    .features{padding:0 18px 12px;display:grid;gap:10px}
-    .features li{display:flex;align-items:center;gap:10px;color:#1e2230}
-    .features li::before{content:"▸";color:var(--primary)}
-
-    /* Precio + confianza */
-    .price{display:flex;align-items:baseline;gap:10px;padding:0 18px 8px;font-weight:900}
-    .price .was{color:#8b94a7;text-decoration:line-through}
-    .price .now{color:#b91e1e;font-size:1.8rem}
-    .price-note{padding:0 18px 10px;color:#5a6272;font-size:.95rem}
-    .trust{display:flex;align-items:center;gap:10px;padding:0 18px 14px;color:#5a6272;flex-wrap:wrap}
-    .trust .label-t{font-weight:800}
-    .tb{display:inline-flex;align-items:center;justify-content:center;height:20px;padding:0 8px;border-radius:6px;font-size:.75rem;font-weight:900;color:#fff}
-    .tb--visa{background:#1a1f71}
-    .tb--mc{background:#eb001b}
-    .tb--ssl{background:#16a34a}
-
-    .buy{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 18px 18px;border-top:1px solid var(--line);background:#fff}
-
-    /* Galería (miniaturas) */
-    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:0 18px 18px}
-    .gallery .gimg{position:relative;border-radius:14px;overflow:hidden;box-shadow:var(--shadow-md);aspect-ratio:4/3;background:#f6f7f9;border:1px solid #eef1f6;cursor:zoom-in}
-    .gallery .gimg img{width:100%;height:100%;object-fit:contain;object-position:center;background:#fff;transition:opacity .2s ease}
-    .gallery .gimg:hover img{opacity:.96}
-
-    /* Tabla */
-    .table-wrap{background:#fff;border:1px solid var(--line);border-radius:var(--radius-xl);box-shadow:var(--shadow-lg);overflow:auto}
-    table{width:100%;border-collapse:collapse;min-width:640px}
-    th,td{padding:14px 16px;text-align:left}
-    thead th{position:sticky;top:0;background:#fafbfc;font-size:.95rem;text-transform:uppercase;letter-spacing:.04em}
-    tbody tr{border-top:1px solid var(--line)}
-    tbody tr:hover{background:#fafafa}
-
-    /* Footer */
-    footer{padding:40px 0 70px;color:#4a5160}
-    .mini{font-size:.95rem}
-
-    /* Lightbox (visor) */
-    .lightbox{
-      position:fixed; inset:0; background:rgba(10,12,16,.86);
-      display:none; place-items:center; z-index:1000;
-      backdrop-filter:blur(2px); overscroll-behavior:contain;
-    }
-    .lightbox.open{display:grid}
-    .lb-frame{
-      position:relative; width:min(96vw,1200px);
-      height:calc(var(--vh, 1vh) * 100 - 24px);   /* altura real del viewport */
-      display:flex; align-items:center; justify-content:center;
-      border-radius:16px; border:1px solid rgba(255,255,255,.12);
-      box-shadow:0 30px 80px rgba(0,0,0,.55); background:#0f1116;
-      padding:0; overflow:hidden;
-    }
-    .lb-frame img{
-      max-width:100%; max-height:100%; width:auto; height:auto;
-      object-fit:contain; object-position:center; background:transparent;
-      opacity:0; transition:opacity .2s ease;
-    }
-    .lb-frame img.lb-loaded{opacity:1}
-    .lb-cap{
-      position:absolute; left:16px; right:16px;
-      bottom:64px; /* deja sitio a los botones en móvil */
-      text-align:center; color:#eaeef9; font-weight:900;
-      text-transform:uppercase; letter-spacing:.08em; font-size:.9rem;
-      opacity:.95; text-shadow:0 2px 10px rgba(0,0,0,.6);
-      pointer-events:none; padding:6px 8px;
-      background:linear-gradient(180deg,rgba(15,17,22,0),rgba(15,17,22,.55));
-      border-radius:10px;
-    }
-    .lb-btn{
-      position:absolute; width:46px; height:46px; border-radius:999px;
-      border:1px solid rgba(255,255,255,.2); background:rgba(255,255,255,.12);
-      color:#fff; font-size:28px; font-weight:700;
-      display:grid; place-items:center; cursor:pointer; user-select:none;
-      box-shadow:0 10px 26px rgba(0,0,0,.35);
-      bottom:14px;       /* botones anclados abajo (móvil/desktop) */
-      transform:none;
-    }
-    .lb-prev{left:14px} .lb-next{right:14px}
-    .lb-close{
-      position:absolute; top:10px; right:10px; width:40px; height:40px;
-      border-radius:999px; border:1px solid rgba(255,255,255,.2);
-      background:rgba(255,255,255,.14); color:#fff; font-size:22px; font-weight:700;
-      display:grid; place-items:center; cursor:pointer; user-select:none;
-      box-shadow:0 10px 26px rgba(0,0,0,.35);
-    }
-    .lightbox .lb-btn:hover,.lightbox .lb-close:hover{background:rgba(255,255,255,.22)}
-
-    /* Tablet */
-    @media(max-width:900px){
-      .hero-grid{grid-template-columns:1fr;gap:16px}
-      .grid{grid-template-columns:1fr;gap:16px}
-      .gallery{grid-template-columns:repeat(2,1fr)}
-      .socials{display:none}
-      .ticker__item{font-size:.82rem;letter-spacing:.1em}
-      .sale-tag{width:64px;height:64px}
-      .sale-box{padding:8px 12px}
-      .brand img{height:72px}
-      .hero{padding:36px 0 20px}
-      .media .img{height:480px}
-    }
-
-    /* Móvil */
-    @media(max-width:600px){
-      .container{width:min(580px,94vw)}
-      header{height:60px}
-      .brand img{height:56px;margin-top:-4px}
-      .nav .cta{padding:10px 14px}
-      .hero{padding:28px 0 14px}
-      h1.hero-title{white-space:normal}
-      .sub{font-size:1rem}
-      .badge{font-size:.85rem}
-
-      /* 🔧 ARREGLO: imágenes principales sin corte */
-      .media{padding:12px}
-      .media .img{height:auto}                        /* sin altura fija */
-      .media .img img{
-        width:100%; height:auto; max-height:62vh;     /* siempre completa */
-        object-fit:contain; object-position:center; background:#f6f7f9;
+    @media(max-width:768px){
+      .menu{ 
+        position:absolute; top:64px; right:0; left:0;
+        background:var(--bg); flex-direction:column; align-items:center;
+        gap:18px; padding:20px 0;
+        border-bottom:1px solid var(--line);
+        transform:translateY(-120%); transition:transform .25s ease;
       }
-
-      .features{padding:0 14px 10px}
-      .price{padding:0 14px 6px}
-      .price-note{padding:0 14px 10px}
-      .trust{padding:0 14px 12px}
-      .gallery{grid-template-columns:1fr}
-      .btn{width:100%}
-      .buy{flex-direction:column;gap:8px}
-      .buy .btn{padding:10px 12px;font-size:.92rem;min-height:40px}
+      .menu.show{transform:translateY(0)}
+      .menu-toggle{display:flex}
     }
 
-    /* Móvil pequeño */
-    @media(max-width:420px){
-      .badge{padding:7px 10px}
-      .mini{font-size:.9rem}
-      .lb-cap{display:none}
-    }
+    /* Hero con video */
+    .hero{position:relative;height:85vh;display:flex;align-items:center;justify-content:center;color:#fff;text-align:center;overflow:hidden}
+    .hero video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-1;filter:brightness(0.6)}
+    .hero h1{font-size:clamp(36px,6vw,70px);margin-bottom:10px;text-transform:uppercase;animation:fadeUp 1.2s ease}
+    .hero p{font-size:1.2rem;max-width:600px;margin:auto;animation:fadeUp 1.6s ease}
 
-    /* Animaciones títulos */
-    @keyframes popTilt{0%{opacity:0;transform:translateY(18px) scale(.9) rotate(-2deg);filter:blur(6px)}60%{opacity:1;transform:translateY(0) scale(1.06) rotate(0);filter:blur(0)}100%{opacity:1;transform:translateY(0) scale(1)}}
-    @keyframes glowPulse{0%{text-shadow:0 0 0 rgba(185,30,30,0)}50%{text-shadow:0 0 18px rgba(185,30,30,.55),0 2px 0 rgba(0,0,0,.06)}100%{text-shadow:0 0 0 rgba(185,30,30,0)}}
-    .label.reveal-pop{animation:popTilt .9s cubic-bezier(.2,.8,.2,1) both,glowPulse 1.8s ease-out .2s 2;color:#111;position:relative}
-    .label.reveal-pop::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:3px;border-radius:999px;background:linear-gradient(90deg,rgba(185,30,30,0) 0%,rgba(185,30,30,.9) 40%,rgba(185,30,30,.9) 60%,rgba(185,30,30,0) 100%);opacity:.9}
-    @keyframes heroPop{0%{opacity:0;transform:translateY(24px) scale(.92);filter:blur(6px)}55%{opacity:1;transform:translateY(0) scale(1.06);filter:blur(0)}100%{opacity:1;transform:translateY(0) scale(1)}}
-    @keyframes heroGlow{0%{text-shadow:0 0 0 rgba(185,30,30,0)}50%{text-shadow:0 0 22px rgba(185,30,30,.55),0 2px 0 rgba(0,0,0,.06)}100%{text-shadow:0 0 0 rgba(185,30,30,0)}}
-    @keyframes heroSheen{0%{transform:translateX(-120%) skewX(-20deg);opacity:0}30%{opacity:.35}100%{transform:translateX(140%) skewX(-20deg);opacity:0}}
-    .hero-title.reveal-hero{animation:heroPop .95s cubic-bezier(.2,.8,.2,1) both,heroGlow 3s ease-in-out .15s infinite}
-    .hero-title.reveal-hero::after{content:"";position:absolute;top:0;bottom:0;left:0;width:22%;background:linear-gradient(90deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.75) 50%,rgba(255,255,255,0) 100%);filter:blur(1px);border-radius:6px;pointer-events:none;animation:heroSheen 6s ease-in-out .4s infinite}
+    @keyframes fadeUp{0%{opacity:0;transform:translateY(30px)}100%{opacity:1;transform:translateY(0)}}
 
-    @media (prefers-reduced-motion:reduce){
-      .label.reveal-pop,.hero-title.reveal-hero{animation:none;text-shadow:none}
-      .label.reveal-pop::after,.hero-title.reveal-hero::after{display:none}
-      .ticker__track{animation:none}
-    }
+    /* Sección Series N */
+    .series{padding:50px 20px;text-align:center}
+    .series h2{font-size:clamp(28px,5vw,40px);color:var(--primary);margin-bottom:12px}
+    .series p{color:var(--muted);max-width:700px;margin:auto;font-size:1.1rem}
 
-    /* FAB WhatsApp */
-    .wa-fab{position:fixed;right:16px;bottom:16px;background:#25d366;color:#fff;font-weight:900;
-      padding:12px 14px;border-radius:999px;box-shadow:0 12px 26px rgba(0,0,0,.25);z-index:9999}
-    .wa-fab:hover{transform:translateY(-1px)}
+    /* Productos */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;margin-top:40px}
+    .card{background:var(--bg);border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:0 6px 18px rgba(0,0,0,.1);opacity:0;transform:translateY(40px);transition:all .6s ease}
+    .card.visible{opacity:1;transform:translateY(0)}
+
+    .card-head{display:flex;justify-content:space-between;padding:14px 16px;font-weight:900;text-transform:uppercase}
+    .carousel{position:relative;overflow:hidden}
+    .carousel-track{display:flex;transition:transform .4s ease}
+    .carousel img{width:100%;flex:0 0 100%;max-height:320px;object-fit:contain;background:#f6f7f9}
+
+    .carousel-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.5);color:#fff;border:none;border-radius:50%;width:32px;height:32px;cursor:pointer}
+    .carousel-btn.prev{left:8px}
+    .carousel-btn.next{right:8px}
+    .carousel-counter{position:absolute;bottom:8px;right:8px;background:rgba(0,0,0,.6);color:#fff;padding:2px 6px;border-radius:6px;font-size:.8rem}
+
+    .price{padding:0 16px 8px;font-weight:900;display:flex;gap:10px}
+    .price .was{text-decoration:line-through;color:#888}
+    .price .now{color:var(--primary);font-size:1.6rem}
+    .buy{padding:12px 16px;border-top:1px solid var(--line)}
+    .btn{display:block;background:var(--primary);color:#fff;padding:12px 14px;border-radius:12px;font-weight:900;text-align:center}
+    .btn:hover{background:#a11616}
+
+    /* FAQ */
+    #faq h2{margin:20px 0}
+    details{border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin-bottom:10px}
+    summary{cursor:pointer;font-weight:900}
+
+    /* Testimonios */
+    .testimonios{background:#f9f9f9;padding:60px 20px;text-align:center}
+    .testimonios h2{font-size:clamp(24px,5vw,36px);margin-bottom:30px;color:var(--primary)}
+    .testimonios-carousel{position:relative;max-width:700px;margin:auto}
+    .testimonios .slide{display:none;font-size:1.1rem;line-height:1.6;color:#333;font-style:italic}
+    .testimonios .slide.active{display:block;animation:fade 1s ease}
+    .testimonios .author{margin-top:10px;font-weight:bold;color:var(--muted)}
+    @keyframes fade{from{opacity:0}to{opacity:1}}
+
+    /* WhatsApp flotante en móvil */
+    .wa-fab{display:none;position:fixed;bottom:16px;right:16px;background:#25d366;color:#fff;
+      border-radius:50%;width:56px;height:56px;display:flex;align-items:center;justify-content:center;
+      font-size:28px;box-shadow:0 6px 18px rgba(0,0,0,.25);z-index:999}
+    @media(max-width:768px){.wa-fab{display:flex}}
+
+    footer{text-align:center;padding:20px;color:var(--muted)}
   </style>
 </head>
 <body>
   <header>
     <div class="container nav">
-      <div class="brand">
-        <img src="Img/0-removebg-preview.png" alt="SCOOT SHOP"/>
-        <span class="tangerine-bold">versatil</span>
-      </div>
-      <div class="nav-right">
-        <div class="socials" aria-label="Redes sociales">
-          <a href="https://www.instagram.com/scootshopping" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5zM18.5 6a1.5 1.5 0 1 1-1.5 1.5A1.5 1.5 0 0 1 18.5 6z"/></svg>
-          </a>
-          <a href="https://www.facebook.com/61579248524907" target="_blank" rel="noopener" aria-label="Facebook">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.07A10 10 0 1 0 10.75 22v-7h-2.5v-3h2.5V9.5c0-2.47 1.47-3.84 3.73-3.84 1.08 0 2.22.19 2.22.19v2.44h-1.25c-1.23 0-1.61.77-1.61 1.56V12h2.74l-.44 3h-2.3v7A10 10 0 0 0 22 12.07z"/></svg>
-          </a>
-          <a href="https://wa.me/34666318747" target="_blank" rel="noopener" aria-label="WhatsApp">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.52 3.48A11.85 11.85 0 0 0 12.03 0C5.52 0 .24 5.28.24 11.79a11.6 11.6 0 0 0 1.57 5.87L0 24l6.5-1.7a11.84 11.84 0 0 0 5.53 1.4h.01c6.51 0 11.79-5.28 11.79-11.79a11.7 11.7 0 0 0-3.31-8.43zM12.04 21a9.8 9.8 0 0 1-5-.1l-.36-.11-3.85 1.01 1.03-3.75-.12-.38a9.8 9.8 0 1 1 8.3 3.33zM8.8 6.94c-.19-.42-.39-.43-.57-.44h-.49c-.17 0-.45.06-.69.34s-.9.88-.9 2.15.92 2.5 1.05 2.68 1.79 2.86 4.34 3.89a11.7 11.7 0 0 0 1.16.43c.49.16.94.15 1.3.09.4-.06 1.22-.5 1.39-.99s.17-.9.12-.99-.19-.15-.39-.26-.94-.46-1.08-.51-.25-.08-.36.08-.42.51-.52.61-.19.14-.35.05a7.07 7.07 0 0 1-2.07-1.28 7.74 7.74 0 0 1-1.41-1.75c-.15-.26 0-.4.11-.55.11-.13.26-.33.39-.49s.17-.29.26-.49.05-.37-.03-.52c-.08-.15-.7-1.69-.96-2.32z"/></svg>
-          </a>
-        </div>
-        <a href="#comprar" class="cta">Comprar ahora</a>
-      </div>
+      <div class="brand"><img src="Img/0-removebg-preview.png"><span>Versatil</span></div>
+      <button class="menu-toggle" aria-label="Menú"><span></span><span></span><span></span></button>
+      <nav class="menu">
+        <a href="#"><i class="fas fa-home"></i>Inicio</a>
+        <a href="#comprar"><i class="fas fa-box"></i>Productos</a>
+        <a href="#faq"><i class="fas fa-question-circle"></i>Preguntas</a>
+        <a href="#ubicacion"><i class="fas fa-map-marker-alt"></i>Ubicación</a>
+        <a href="https://www.instagram.com/scootshopping" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/61579248524907" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://wa.me/34666318747" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </nav>
     </div>
   </header>
 
-  <!-- TICKER -->
-  <div class="ticker" role="region" aria-label="Mensajes">
-    <div class="ticker__viewport">
-      <div class="ticker__track">
-        <div class="ticker__group">
-          <span class="ticker__item ticker__item--brand">SCOOT SHOP</span>
-          <span class="ticker__item">SERIES N7</span>
-          <span class="ticker__item">BIENVENIDO</span>
+  <!-- Hero con video -->
+  <section class="hero">
+    <video autoplay muted loop>
+      <source src="completo.mp4" type="video/mp4">
+    </video>
+    <div>
+      <h1>N7PRO & N7MAX</h1>
+      <p>El futuro de la movilidad urbana ya está aquí 🚀</p>
+    </div>
+  </section>
+
+  <!-- NUEVA Sección Series N -->
+  <section class="series">
+    <div class="container">
+      <h2>Series N</h2>
+      <p>La gama más innovadora de Scoot Shop: velocidad, diseño y potencia para redefinir tu movilidad en la ciudad. Con la Serie N llevas la experiencia de conducción al siguiente nivel.</p>
+    </div>
+  </section>
+
+  <!-- Productos -->
+  <section id="comprar" class="container">
+    <div class="grid">
+      <article class="card">
+        <div class="card-head"><span>N7PRO</span><span>Ciudad</span></div>
+        <div class="carousel" data-carousel>
+          <div class="carousel-track">
+            <img src="Img-N7PRO/1.jpg"><img src="Img-N7PRO/2.jpg"><img src="Img-N7PRO/3.jpg">
+            <img src="Img-N7PRO/4.jpg"><img src="Img-N7PRO/5.jpg"><img src="Img-N7PRO/6.jpg">
+          </div>
+          <button class="carousel-btn prev">‹</button><button class="carousel-btn next">›</button>
+          <div class="carousel-counter">1/6</div>
         </div>
-        <div class="ticker__group" aria-hidden="true">
-          <span class="ticker__item ticker__item--brand">SCOOT SHOP</span>
-          <span class="ticker__item">SERIES N7</span>
-          <span class="ticker__item">BIENVENIDO</span>
+        <div class="price"><span class="was">587,50 €</span><span class="now">235 €</span></div>
+        <div class="buy"><a class="btn" href="#">Comprar</a></div>
+      </article>
+
+      <article class="card">
+        <div class="card-head"><span>N7MAX</span><span>Potencia</span></div>
+        <div class="carousel" data-carousel>
+          <div class="carousel-track">
+            <img src="Img-N7MAX/1.jpg"><img src="Img-N7MAX/2.jpg"><img src="Img-N7MAX/3.jpg">
+            <img src="Img-N7MAX/4.jpg"><img src="Img-N7MAX/5.jpg"><img src="Img-N7MAX/6.jpg">
+            <img src="Img-N7MAX/7.jpg"><img src="Img-N7MAX/8.jpg"><img src="Img-N7MAX/9.jpg"><img src="Img-N7MAX/10.jpg">
+          </div>
+          <button class="carousel-btn prev">‹</button><button class="carousel-btn next">›</button>
+          <div class="carousel-counter">1/10</div>
         </div>
-        <div class="ticker__group" aria-hidden="true">
-          <span class="ticker__item ticker__item--brand">SCOOT SHOP</span>
-          <span class="ticker__item">SERIES N7</span>
-          <span class="ticker__item">BIENVENIDO</span>
+        <div class="price"><span class="was">937,50 €</span><span class="now">375 €</span></div>
+        <div class="buy"><a class="btn" href="#">Comprar</a></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="container">
+    <h2>Preguntas frecuentes</h2>
+    <details><summary>¿Cuánto tarda el envío?</summary><p>6–8 días hábiles.</p></details>
+    <details><summary>¿Cuál es la garantía?</summary><p>70 km de uso. Reparación parcial o cambio completo según el caso.</p></details>
+    <details><summary>¿Incluye accesorios?</summary><p>Sí, soporte móvil, candado y cargador según modelo.</p></details>
+    <details><summary>¿Dónde puedo verlo?</summary><p>En Silla y Catarroja (Valencia).</p></details>
+  </section>
+
+  <!-- Testimonios -->
+  <section class="testimonios">
+    <div class="container">
+      <h2>Lo que dicen nuestros clientes</h2>
+      <div class="testimonios-carousel" id="testimoniosCarousel">
+        <div class="slide active">
+          <p>"Increíble potencia en el N7MAX, me siento seguro y rápido en la ciudad."</p>
+          <div class="author">— Carlos G. ⭐⭐⭐⭐⭐</div>
         </div>
-        <div class="ticker__group" aria-hidden="true">
-          <span class="ticker__item ticker__item--brand">SCOOT SHOP</span>
-          <span class="ticker__item">SERIES N7</span>
-          <span class="ticker__item">BIENVENIDO</span>
+        <div class="slide">
+          <p>"El N7PRO es perfecto para mis trayectos diarios. Ligero y fiable."</p>
+          <div class="author">— Marta L. ⭐⭐⭐⭐⭐</div>
+        </div>
+        <div class="slide">
+          <p>"Entrega rápida y la garantía de 70 km me dio total tranquilidad."</p>
+          <div class="author">— Javier P. ⭐⭐⭐⭐⭐</div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <main>
-    <!-- HERO -->
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <div class="kicker">Serie N7</div>
+  <!-- Ubicación -->
+  <section id="ubicacion" class="container">
+    <h2>Ubicación</h2>
+    <iframe src="https://www.google.com/maps?q=Silla%20Valencia&output=embed" style="width:100%;height:300px;border-radius:12px"></iframe>
+  </section>
 
-          <!-- Banner descuento -->
-          <div class="sale-banner" aria-label="Descuento 60%">
-            <div class="sale-tag">
-              <img src="Img/60-off.png" alt="Etiqueta 60% OFF">
-            </div>
-            <div class="sale-box">
-              <span class="sale-emoji">😱🔥</span>
-              <span class="sale-series">SERIES N7</span>
-              <span class="sale-percent">-60% DTO</span>
-            </div>
-          </div>
+  <footer>© <span id="y"></span> SCOOT SHOP</footer>
 
-          <h1 class="hero-title" data-animate="hero">N7PRO & N7MAX</h1>
-          <p class="sub">N7PRO es ágil para ciudad. N7MAX ofrece máxima potencia y autonomía.</p>
-          <div class="badges">
-            <div class="badge">Envío 6-8 Días</div>
-            <div class="badge">Venta Presencial en Silla y Catarroja</div>
-            <div class="badge">Soporte por WhatsApp</div>
-            <div class="badge">Soporte por Instagram</div>
-            <div class="badge">Soporte por Facebook</div>
-          </div>
-        </div>
-        <aside class="hero-card">
-          <div class="thumb">
-            <img src="Img-N7MAX/1.jpg" alt="N7MAX — foto principal" loading="lazy"/>
-          </div>
-          <div>
-            <h2 style="margin:6px 0 4px">N7MAX — Potencia y alcance</h2>
-          </div>
-          <a href="#n7max" class="btn block">Ver N7MAX</a>
-        </aside>
-      </div>
-    </section>
-
-    <!-- PRODUCTOS -->
-    <section id="comprar">
-      <div class="container">
-        <div class="grid">
-          <!-- N7PRO -->
-          <article class="card" id="n7pro">
-            <div class="card-head">
-              <span class="label" data-animate="n7">N7PRO</span>
-              <span class="pill">Ciudad</span>
-            </div>
-            <div class="media">
-              <div class="img">
-                <img src="Img-N7PRO/1.jpg" alt="N7PRO principal" loading="lazy"/>
-              </div>
-            </div>
-            <ul class="features">
-              <li>Potencia: <strong>350 W</strong></li>
-              <li>Autonomía: <strong>30–35 km</strong></li>
-              <li>Velocidad máxima: <strong>30 km/h</strong></li>
-              <li>Batería: <strong>36V 10.4 Ah</strong></li>
-              <li>Protección: <strong>IP54</strong></li>
-              <li>Soporta hasta <strong>150 kg</strong></li>
-              <li>Accesorios incluidos: <strong>Cargador</strong></li>
-              <li style="color:#b91e1e;font-weight:900;">🎁 Obsequios: <strong>Soporte para móvil</strong> + <strong>Candado de combinación</strong></li>
-              <li>Compatibilidad: <strong>APP</strong> para regular velocidad y distancias</li>
-              <li>Factura de compra incluida</li>
-            </ul>
-
-            <div class="rating" style="display:flex;align-items:center;gap:8px;padding:0 18px 6px;">
-              <div aria-label="Valoración 4.8 de 5">⭐️⭐️⭐️⭐️⭐️</div>
-              <small style="color:#5a6272">4.8/5 (96 reseñas)</small>
-            </div>
-
-            <div class="price">
-              <span class="was">587.50 €</span>
-              <span class="now">235 €</span>
-            </div>
-            <div class="price-note">IVA incl. · Envío 6–8 días</div>
-
-            <div class="trust">
-              <span class="label-t">Pago seguro</span>
-              <span class="tb tb--visa">VISA</span>
-              <span class="tb tb--mc">MC</span>
-              <span class="tb tb--ssl">SSL</span>
-              <span aria-hidden="true">•</span>
-              <span>Reseñas De Producto En Distintos Sitios Web Oficiales</span>
-            </div>
-
-            <!-- Galería N7PRO -->
-            <div class="gallery" aria-label="Galería N7PRO">
-              <div class="gimg"><img src="Img-N7PRO/1.jpg" alt="N7PRO — 1" loading="lazy"/></div>
-              <div class="gimg"><img src="Img-N7PRO/2.jpg" alt="N7PRO — 2" loading="lazy"/></div>
-              <div class="gimg"><img src="Img-N7PRO/3.jpg" alt="N7PRO — 3" loading="lazy"/></div>
-              <div class="gimg"><img src="Img-N7PRO/4.jpg" alt="N7PRO — 4" loading="lazy"/></div>
-              <div class="gimg"><img src="Img-N7PRO/5.jpg" alt="N7PRO — 5" loading="lazy"/></div>
-              <div class="gimg"><img src="Img-N7PRO/6.jpg" alt="N7PRO — 6" loading="lazy"/></div>
-            </div>
-
-            <div class="buy">
-              <button class="btn btn-outline" data-view="n7pro">Ver más</button>
-              <button class="btn" data-product="N7PRO">Comprar</button>
-            </div>
-          </article>
-
-          <!-- N7MAX -->
-          <article class="card" id="n7max">
-            <div class="card-head">
-              <span class="label" data-animate="n7">N7MAX</span>
-              <span class="pill">Potencia</span>
-            </div>
-            <div class="media">
-              <div class="img"><img src="Img-N7MAX/1.jpg" alt="N7MAX principal" loading="lazy"/></div>
-            </div>
-            <ul class="features">
-              <li>Velocidad máxima: <strong>55 km/h</strong></li>
-              <li><strong>3 velocidades</strong></li>
-              <li>Autonomía: <strong>50 km</strong></li>
-              <li>Potencia: <strong>800 W</strong></li>
-              <li>Accesorios: Asiento, llaves, herramienta, cargador y caja</li>
-              <li>Iluminación: LEDs delanteras, traseras y laterales</li>
-              <li>Suspensión: Amortiguadores</li>
-              <li>Llaves, claxon y direccionales</li>
-            </ul>
-
-            <div class="rating" style="display:flex;align-items:center;gap:8px;padding:0 18px 6px;">
-              <div aria-label="Valoración 4.9 de 5">⭐️⭐️⭐️⭐️⭐️</div>
-              <small style="color:#5a6272">4.9/5 (128 reseñas)</small>
-            </div>
-
-            <div class="price">
-              <span class="was">937.50 €</span>
-              <span class="now">375 €</span>
-            </div>
-            <div class="price-note">IVA incl. · Envío 6–8 días</div>
-
-            <div class="trust">
-              <span class="label-t">Pago seguro</span>
-              <span class="tb tb--visa">VISA</span>
-              <span class="tb tb--mc">MC</span>
-              <span class="tb tb--ssl">SSL</span>
-              <span aria-hidden="true">•</span>
-              <span>Reseñas De Producto En Distintos Sitios Web Oficiales</span>
-            </div>
-
-            <!-- Galería N7MAX -->
-            <div class="gallery" aria-label="Galería N7MAX">
-              <div class="gimg"><img src="Img-N7MAX/1.jpg" alt="N7MAX — 1" loading="lazy"/></div>
-              <div class="gimg"><img src="Img-N7MAX/2.jpg" alt="N7MAX — 2" loading="lazy"/></div>
-              <div class="gimg"><img src="Img-N7MAX/3.jpg" alt="N7MAX — 3" loading="lazy"/></div>
-              <div class="gimg"><img src="Img-N7MAX/4.jpg" alt="N7MAX — 4" loading="lazy"/></div>
-              <div class="gimg"><img src="Img-N7MAX/5.jpg" alt="N7MAX — 5" loading="lazy"/></div>
-              <div class="gimg"><img src="Img-N7MAX/6.jpg" alt="N7MAX — 6" loading="lazy"/></div>
-              <div class="gimg"><img src="Img-N7MAX/7.jpg" alt="N7MAX — 7" loading="lazy"/></div>
-              <div class="gimg"><img src="Img-N7MAX/8.jpg" alt="N7MAX — 8" loading="lazy"/></div>
-            </div>
-
-            <div class="buy">
-              <button class="btn btn-outline" data-view="n7max">Ver más</button>
-              <button class="btn" data-product="N7MAX">Comprar</button>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Comparativa -->
-    <section>
-      <div class="container">
-        <h2 style="margin:0 0 14px;text-transform:uppercase;letter-spacing:.02em;text-shadow:0 10px 30px rgba(0,0,0,.08)">Comparativa rápida</h2>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Característica</th><th>N7PRO</th><th>N7MAX</th></tr></thead>
-            <tbody>
-              <tr><td>Velocidad máx.</td><td>30 km/h</td><td>55 km/h</td></tr>
-              <tr><td>Autonomía</td><td>30–35 km</td><td>50 km</td></tr>
-              <tr><td>Potencia</td><td>350 W</td><td>800 W</td></tr>
-              <tr><td>Protección</td><td>IP54</td><td>IP54</td></tr>
-              <tr><td>Extras</td><td>🎁 Soporte + Candado</td><td>Asiento + Toolkit</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="container" style="padding:8px 0 34px">
-      <h2 style="margin:10px 0 8px;text-transform:uppercase;letter-spacing:.04em;">Preguntas frecuentes</h2>
-      <details style="border:1px solid #e6e9ef;border-radius:12px;padding:10px 14px;margin-bottom:8px">
-        <summary><strong>¿Cuánto tarda el envío?</strong></summary>
-        6–8 días hábiles. Te enviamos número de seguimiento por WhatsApp.
-      </details>
-      <details style="border:1px solid #e6e9ef;border-radius:12px;padding:10px 14px;margin-bottom:8px">
-        <summary><strong>Devoluciones y garantía</strong></summary>
-        40KM para devoluciones sin uso.
-      </details>
-      <details style="border:1px solid #e6e9ef;border-radius:12px;padding:10px 14px">
-        <summary><strong>Ventas Presenciales?</strong></summary>
-        Si, en Silla y Catarroja
-      </details>
-    </section>
-
-    <!-- Dónde verlos -->
-    <section class="container" style="padding:8px 0 40px">
-      <h2 style="text-transform:uppercase;letter-spacing:.04em;margin:0 0 10px">Dónde verlos</h2>
-      <iframe src="https://www.google.com/maps?q=Silla%20Valencia&output=embed"
-        style="border:0;width:100%;height:320px;border-radius:16px"></iframe>
-      <p class="mini">Visítanos en Silla y Catarroja · Escríbenos por WhatsApp para cita</p>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container mini">
-      <p>© <span id="y"></span> SCOOT SHOP · Envío 6 a 8 días hábiles · Atención por WhatsApp</p>
-      <p>
-        <a href="#aviso" onclick="alert('Añade tu aviso legal aquí');return false;">Aviso legal</a> ·
-        <a href="#priv" onclick="alert('Añade tu política de privacidad aquí');return false;">Privacidad</a> ·
-        <a href="#cookies" onclick="alert('Añade tu política de cookies aquí');return false;">Cookies</a> ·
-        <a href="#terminos" onclick="alert('Añade tus términos y condiciones aquí');return false;">Términos</a>
-      </p>
-    </div>
-  </footer>
-
-  <!-- LIGHTBOX -->
-  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-label="Visor de imágenes">
-    <button class="lb-close" aria-label="Cerrar (Esc)">×</button>
-    <button class="lb-btn lb-prev" aria-label="Anterior">‹</button>
-    <figure class="lb-frame">
-      <img id="lb-img" src="" alt="">
-      <figcaption id="lb-cap" class="lb-cap"></figcaption>
-    </figure>
-    <button class="lb-btn lb-next" aria-label="Siguiente">›</button>
-  </div>
-
-  <!-- MODAL COMPRA -->
-  <dialog id="modal">
-    <form method="dialog" class="sheet" id="sheet">
-      <h3 style="margin:0 0 6px">Completa tu compra</h3>
-      <p class="mini" id="chosen">Has elegido: —</p>
-      <div style="display:grid;gap:8px;margin:10px 0">
-        <a id="buyLink" class="btn" href="#" target="_blank" rel="noopener">Pagar por WhatsApp</a>
-        <a id="cardLink" class="btn btn--card" href="#" target="_blank" rel="noopener">Pagar con Tarjeta</a>
-        <button class="btn" value="cancel" style="background:#141518">Seguir mirando</button>
-      </div>
-    </form>
-    <style>
-      dialog{border:none;padding:0;background:transparent}
-      dialog::backdrop{background:rgba(0,0,0,.4)}
-      .sheet{width:min(520px,92vw);margin:auto;border-radius:20px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-lg);padding:18px}
-    </style>
-  </dialog>
-
-  <!-- FAB WhatsApp -->
-  <a href="https://wa.me/34666318747?text=Hola,%20tengo%20una%20consulta%20sobre%20la%20Serie%20N7"
-     class="wa-fab" aria-label="Chat por WhatsApp">💬</a>
-
-  <!-- Barra de compra fija -->
-  <div id="stickyBar" style="position:fixed;left:0;right:0;bottom:-120px;display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap;padding:10px;background:#0f1116;color:#fff;box-shadow:0 -10px 30px rgba(0,0,0,.25);z-index:9999;transition:bottom .25s ease;">
-    <span style="font-weight:900;letter-spacing:.06em">¿Listo? — Serie N7</span>
-    <a href="#n7pro" class="btn btn-outline" style="padding:10px 14px;min-width:140px;">Ver N7PRO</a>
-    <a href="#n7max" class="btn" style="padding:10px 14px;min-width:140px;">Ver N7MAX</a>
-  </div>
+  <a href="https://wa.me/34666318747" class="wa-fab"><i class="fab fa-whatsapp"></i></a>
 
   <script>
-    /* Año footer */
-    document.getElementById('y').textContent = new Date().getFullYear();
+    document.getElementById('y').textContent=new Date().getFullYear();
+    // Animación scroll
+    const cards=document.querySelectorAll('.card');
+    const obs=new IntersectionObserver(entries=>{
+      entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible')}})
+    },{threshold:0.2});
+    cards.forEach(c=>obs.observe(c));
 
-    /* Fix 100vh móvil (—vh) */
-    function setVh(){
-      const vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty('--vh', `${vh}px`);
-    }
-    setVh();
-    addEventListener('resize', setVh);
-    addEventListener('orientationchange', setVh);
-
-    /* Animación de entrada */
-    const targets = document.querySelectorAll('[data-animate]');
-    function reveal(el){ const t = el.dataset.animate; if(t==='n7') el.classList.add('reveal-pop'); else if(t==='hero') el.classList.add('reveal-hero'); }
-    const io = new IntersectionObserver((entries)=>{ entries.forEach(e=>{ if(e.isIntersecting){ reveal(e.target); io.unobserve(e.target);} }); }, {threshold:0.6});
-    targets.forEach(el=>{ const r=el.getBoundingClientRect(); if(r.top>=0 && r.bottom<= (innerHeight||document.documentElement.clientHeight)){ reveal(el);} else { io.observe(el);} });
-
-    /* Modal compra */
-    const modal = document.getElementById('modal');
-    const chosen = document.getElementById('chosen');
-    const buyLink = document.getElementById('buyLink');
-    const cardLink = document.getElementById('cardLink');
-
-    document.addEventListener('click',(e)=>{
-      const btn = e.target.closest('button.btn[data-product]');
-      if(!btn) return;
-      const prod = btn.dataset.product;
-      chosen.textContent = 'Has elegido: ' + prod;
-      const msg = encodeURIComponent('Hola, quiero comprar el modelo ' + prod + '.');
-      buyLink.href = 'https://wa.me/34666318747?text=' + msg;
-      buyLink.textContent = 'Pagar ' + prod + ' por WhatsApp';
-      cardLink.href = 'https://tuservidor.com/pago?producto=' + encodeURIComponent(prod);
-      cardLink.textContent = 'Pagar ' + prod + ' con Tarjeta';
-      modal.showModal();
+    // Carrusel productos
+    document.querySelectorAll('[data-carousel]').forEach(c=>{
+      const t=c.querySelector('.carousel-track'),s=Array.from(t.children),
+            p=c.querySelector('.prev'),n=c.querySelector('.next'),
+            ctr=c.querySelector('.carousel-counter');
+      let i=0;function u(){t.style.transform=`translateX(${-i*100}%)`;ctr.textContent=`${i+1}/${s.length}`;}
+      p.onclick=()=>{i=(i-1+s.length)%s.length;u();};
+      n.onclick=()=>{i=(i+1)%s.length;u();};u();
     });
 
-    /* Lightbox mejorado (contain + fade-in + swipe + abre en imagen principal) */
-    (()=>{
-      const overlay = document.getElementById('lightbox');
-      const img = document.getElementById('lb-img');
-      const cap = document.getElementById('lb-cap');
-      const prevBtn = overlay.querySelector('.lb-prev');
-      const nextBtn = overlay.querySelector('.lb-next');
-      const closeBtn = overlay.querySelector('.lb-close');
+    // Menú hamburguesa
+    const toggle=document.querySelector('.menu-toggle');
+    toggle.addEventListener('click',()=>{
+      document.querySelector('.menu').classList.toggle('show');
+      toggle.classList.toggle('active');
+    });
 
-      let group = 'n7max', index = 0;
-      const sources = {
-        n7pro: Array.from(document.querySelectorAll('#n7pro .gallery img')).map(i=>i.getAttribute('src')),
-        n7max: Array.from(document.querySelectorAll('#n7max .gallery img')).map(i=>i.getAttribute('src')),
-      };
-      const titles = { n7pro:'N7PRO', n7max:'N7MAX' };
-
-      function preload(arr, i){
-        const n = new Image(); n.src = arr[(i+1)%arr.length];
-        const p = new Image(); p.src = arr[(i-1+arr.length)%arr.length];
-      }
-      function show(g, i){
-        group = g;
-        const arr = sources[group];
-        index = (i + arr.length) % arr.length;
-
-        img.classList.remove('lb-loaded');
-        img.src = arr[index];
-        img.alt = `${titles[group]} — Foto ${index+1}`;
-        cap.textContent = `${titles[group]} — Foto ${index+1}/${arr.length}`;
-
-        if (img.complete){ requestAnimationFrame(()=> img.classList.add('lb-loaded')); }
-        else { img.onload = ()=> img.classList.add('lb-loaded'); img.onerror = ()=> img.classList.add('lb-loaded'); }
-
-        overlay.classList.add('open');
-        overlay.setAttribute('aria-hidden','false');
-        document.body.style.overflow = 'hidden';
-        preload(arr, index);
-      }
-      function close(){
-        overlay.classList.remove('open');
-        overlay.setAttribute('aria-hidden','true');
-        document.body.style.overflow = '';
-        img.classList.remove('lb-loaded');
-        img.removeAttribute('src'); img.removeAttribute('alt');
-      }
-      function next(){ show(group, index+1); }
-      function prev(){ show(group, index-1); }
-
-      nextBtn.addEventListener('click', e=>{ e.stopPropagation(); next(); });
-      prevBtn.addEventListener('click', e=>{ e.stopPropagation(); prev(); });
-      closeBtn.addEventListener('click', e=>{ e.stopPropagation(); close(); });
-
-      // Cerrar tocando fuera del marco
-      overlay.addEventListener('click', e=>{
-        const frame = e.target.closest('.lb-frame');
-        if(!frame) close();
-      });
-
-      // Teclado
-      document.addEventListener('keydown', e=>{
-        if(!overlay.classList.contains('open')) return;
-        if(e.key==='Escape') close();
-        if(e.key==='ArrowRight') next();
-        if(e.key==='ArrowLeft') prev();
-      });
-
-      // Swipe en móvil
-      let tX = 0, tY = 0, swiping = false;
-      overlay.addEventListener('touchstart', e=>{
-        if(!overlay.classList.contains('open')) return;
-        const t = e.changedTouches[0];
-        tX = t.clientX; tY = t.clientY; swiping = true;
-      }, {passive:true});
-      overlay.addEventListener('touchend', e=>{
-        if(!swiping) return;
-        const t = e.changedTouches[0];
-        const dx = t.clientX - tX;
-        const dy = t.clientY - tY;
-        swiping = false;
-        if(Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)){
-          dx < 0 ? next() : prev();
-        }
-      }, {passive:true});
-
-      // Miniaturas
-      document.querySelectorAll('#n7pro .gallery img').forEach((t,i)=> t.addEventListener('click',()=>show('n7pro',i)));
-      document.querySelectorAll('#n7max .gallery img').forEach((t,i)=> t.addEventListener('click',()=>show('n7max',i)));
-
-      // 🔧 NUEVO: abrir lightbox al tocar la imagen principal del producto
-      const mainN7pro = document.querySelector('#n7pro .media .img img');
-      const mainN7max = document.querySelector('#n7max .media .img img');
-      if(mainN7pro) mainN7pro.addEventListener('click', ()=> show('n7pro', 0));
-      if(mainN7max) mainN7max.addEventListener('click', ()=> show('n7max', 0));
-
-      // Botones "Ver más"
-      document.querySelectorAll('[data-view]').forEach(btn=>{
-        btn.addEventListener('click', ()=>{
-          const g = btn.getAttribute('data-view');
-          show(g,0);
-          const section = document.getElementById(g);
-          if(section) section.scrollIntoView({behavior:'smooth',block:'center'});
-        });
-      });
-    })();
-
-    /* Barra sticky (CTA al hacer scroll) */
-    (()=>{
-      let lastY=0, shown=false;
-      const bar=document.getElementById('stickyBar');
-      addEventListener('scroll', ()=>{
-        const y=scrollY;
-        if(y>600 && y>lastY && !shown){ bar.style.bottom='0'; shown=true; }
-        if(y<300 && shown){ bar.style.bottom='-120px'; shown=false; }
-        lastY=y;
-      });
-    })();
+    // Carrusel testimonios
+    let idx=0;
+    const slides=document.querySelectorAll('#testimoniosCarousel .slide');
+    function showSlide(){
+      slides.forEach(s=>s.classList.remove('active'));
+      slides[idx].classList.add('active');
+      idx=(idx+1)%slides.length;
+    }
+    setInterval(showSlide,4000);
   </script>
 </body>
 </html>
