@@ -37,16 +37,21 @@
     /* Header */
     header{
       position:sticky;top:0;z-index:20;
-      background:rgba(255,255,255,.85);
+      background:rgba(255, 255, 255, 0.57);
       backdrop-filter:blur(8px);
-      border-bottom:1px solid var(--line);
+      border-bottom:1px solid #f9f9f900;
+      height:75px; /* barra más angosta */
     }
     .nav{
       display:flex;justify-content:space-between;align-items:center;
-      padding:4px 0; /* menú más fino */
+      padding:0;
     }
     .brand{display:flex;align-items:center;gap:8px}
-    .brand img{height:80px} /* logo grande */
+    .brand img{
+      height:80px; /* logo grande */
+      position:center;
+      top:-16px;   /* sobresale hacia arriba */
+    }
     .brand span{font-family:'Tangerine',cursive;font-size:2rem;color:var(--primary)}
 
     /* Menú */
@@ -122,6 +127,26 @@
     .buy{padding:14px;border-top:1px solid var(--line)}
     .btn{display:block;background:var(--primary);color:#fff;padding:12px;border-radius:12px;font-weight:900;text-align:center;transition:.3s}
     .btn:hover{background:#a11616}
+
+    /* Botón WhatsApp (añadido) */
+    .btn-whatsapp{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      background:#25D366;
+      color:#fff;
+      padding:12px;
+      border-radius:12px;
+      font-weight:900;
+      text-align:center;
+      transition:.3s;
+      font-size:1rem;
+      margin-top:8px; /* separa del botón rojo sin tocar .buy */
+    }
+    .btn-whatsapp:hover{ background:#1ebe5d; }
+    .btn-whatsapp i{ font-size:20px; }
+
     @media(max-width:768px){
       .grid{grid-template-columns:repeat(2,1fr)}
       .carousel img{max-height:180px}
@@ -157,11 +182,11 @@
     .pagos-logos .fa-store{color:#1e90ff}
     .pagos-logos .fa-shirt{color:#ff5a5f}
 
-
     footer{text-align:center;padding:20px;color:var(--muted)}
   </style>
 </head>
 <body>
+  <!-- Header -->
   <header>
     <div class="container nav">
       <div class="brand"><img src="Img/0-removebg-preview.png" alt="SCOOT SHOP logo"><span>Versatil</span></div>
@@ -180,9 +205,10 @@
 
   <!-- Hero -->
   <section class="hero" aria-label="Video hero">
-    <video id="heroVideo" autoplay muted playsinline loop preload="auto" poster="Img-N7MAX/1.jpg">
-      <source src="completo.mp4" type="video/mp4">
-    </video>
+    <video id="heroVideo" autoplay muted loop playsinline preload="auto" poster="Img-N7MAX/1.jpg">
+  <source src="completo.mp4" type="video/mp4">
+</video>
+
     <div>
       <h1>N7PRO & N7MAX</h1>
       <p>El futuro de la movilidad urbana ya está aquí 🚀</p>
@@ -221,7 +247,10 @@
           <div class="carousel-counter">1/6</div>
         </div>
         <div class="price"><span class="was">587,50 €</span><span class="now">235 €</span></div>
-        <div class="buy"><a class="btn" href="n7pro.html">Ver detalles</a></div>
+        <div class="buy">
+          <a class="btn" href="n7pro.html">Ver detalles</a>
+          <a class="btn-whatsapp" href="https://wa.me/34666318747" target="_blank"><i class="fab fa-whatsapp"></i> Comprar</a>
+        </div>
       </article>
 
       <!-- N7MAX -->
@@ -248,7 +277,10 @@
           <div class="carousel-counter">1/10</div>
         </div>
         <div class="price"><span class="was">937,50 €</span><span class="now">375 €</span></div>
-        <div class="buy"><a class="btn" href="n7max.html">Ver detalles</a></div>
+        <div class="buy">
+          <a class="btn" href="n7max.html">Ver detalles</a>
+          <a class="btn-whatsapp" href="https://wa.me/34666318747" target="_blank"><i class="fab fa-whatsapp"></i> Comprar</a>
+        </div>
       </article>
     </div>
   </section>
@@ -289,8 +321,6 @@
     <iframe src="https://www.google.com/maps?q=Silla%20Valencia&output=embed" style="width:100%;height:300px;border-radius:12px;border:0"></iframe>
   </section>
 
-  
-
   <a href="https://wa.me/34666318747" class="wa-fab" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
  <section class="pagos">
     <div class="container">
@@ -305,6 +335,7 @@
     </div>
     <footer>© <span id="y"></span> SCOOT SHOP</footer>
   </section>
+
   <script>
     // Año footer
     document.getElementById('y').textContent=new Date().getFullYear();
@@ -393,16 +424,13 @@
     // Video listo -> fade-in
     const v=document.getElementById('heroVideo');
     if(v){
-      v.muted=true; v.playsInline=true;
-      const ready=()=>v.classList.add('ready');
+      v.muted=true; v.playsInline=true; v.loop=true;
+      const ready=()=>{ v.classList.add('ready'); v.play().catch(()=>{}); };
       if(v.readyState>=2) ready();
       v.addEventListener('canplay', ready, {once:true});
       v.addEventListener('loadeddata', ()=>{ if(v.readyState>=2) ready(); });
-      v.play().catch(()=>{}); 
     }
 
-
-    
   </script>
 </body>
 </html>
