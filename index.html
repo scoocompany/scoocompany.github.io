@@ -128,7 +128,7 @@
     .btn{display:block;background:var(--primary);color:#fff;padding:12px;border-radius:12px;font-weight:900;text-align:center;transition:.3s}
     .btn:hover{background:#a11616}
 
-    /* Botón WhatsApp (añadido) */
+    /* Botón WhatsApp (añadido previamente) */
     .btn-whatsapp{
       display:flex;
       align-items:center;
@@ -142,7 +142,7 @@
       text-align:center;
       transition:.3s;
       font-size:1rem;
-      margin-top:8px; /* separa del botón rojo sin tocar .buy */
+      margin-top:8px;
     }
     .btn-whatsapp:hover{ background:#1ebe5d; }
     .btn-whatsapp i{ font-size:20px; }
@@ -205,9 +205,17 @@
 
   <!-- Hero -->
   <section class="hero" aria-label="Video hero">
-    <video id="heroVideo" autoplay muted loop playsinline preload="auto" poster="Img-N7MAX/1.jpg">
-  <source src="completo.mp4" type="video/mp4">
-</video>
+    <!-- VIDEO: solo se cambia esta etiqueta con atributos móviles -->
+    <video id="heroVideo"
+           muted
+           playsinline
+           webkit-playsinline
+           autoplay
+           loop
+           preload="auto"
+           poster="Img-N7MAX/1.jpg">
+      <source src="completo.mp4" type="video/mp4">
+    </video>
 
     <div>
       <h1>N7PRO & N7MAX</h1>
@@ -421,16 +429,30 @@
       idx=(idx+1)%slides.length;
     },4000);
 
-    // Video listo -> fade-in
-    const v=document.getElementById('heroVideo');
-    if(v){
-      v.muted=true; v.playsInline=true; v.loop=true;
-      const ready=()=>{ v.classList.add('ready'); v.play().catch(()=>{}); };
-      if(v.readyState>=2) ready();
-      v.addEventListener('canplay', ready, {once:true});
-      v.addEventListener('loadeddata', ()=>{ if(v.readyState>=2) ready(); });
-    }
+    // --- Autoplay robusto en móviles ---
+    const v = document.getElementById('heroVideo');
+    if (v) {
+      v.muted = true;             // imprescindible en iOS
+      v.playsInline = true;       // compatibilidad
+      v.setAttribute('playsinline','');
+      v.setAttribute('webkit-playsinline','');
 
+      const start = () => {
+        v.play().then(() => {
+          v.classList.add('ready'); // activa el fade-in que ya tienes
+        }).catch(() => {
+          // si falla, lo intentamos al primer toque (abajo)
+        });
+      };
+
+      if (v.readyState >= 2) start();
+      v.addEventListener('canplay', start, { once: true });
+      v.addEventListener('loadeddata', () => { if (v.readyState >= 2) start(); });
+
+      // Fallback universal: primer toque del usuario
+      const unlock = () => { start(); window.removeEventListener('pointerdown', unlock); };
+      window.addEventListener('pointerdown', unlock, { once: true });
+    }
   </script>
 </body>
 </html>
