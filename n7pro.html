@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SCOOT SHOP — N7PRO</title>
+  <meta name="description" content="Descubre el N7PRO de Scoot Shop: compacto, ligero y eficiente para la ciudad. Garantía oficial y envío rápido.">
+
+  <!-- Tipografías (mismas que el index) -->
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap" rel="stylesheet">
+  <!-- Iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    :root{
+      --sport-font:'Russo One',sans-serif;
+      --logo-font:'Tangerine',cursive;
+      --bg:#fff; --ink:#141518; --line:#e6e9ef;
+      --primary:#b91e1e; --muted:#555;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:var(--sport-font);background:var(--bg);color:var(--ink);line-height:1.5}
+    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+
+    /* Header idéntico al index */
+    header{
+      position:sticky;top:0;z-index:20;
+      background:rgba(255,255,255,.85);
+      backdrop-filter:blur(8px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{display:flex;justify-content:space-between;align-items:center;padding:4px 0;width:min(1140px,94vw);margin:auto}
+    .brand{display:flex;align-items:center;gap:8px}
+    .brand img{height:80px}
+    .brand span{font-family:var(--logo-font);font-size:2rem;color:var(--primary)}
+
+    .menu{display:flex;gap:16px;align-items:center;font-weight:900;text-transform:uppercase;font-size:.9rem}
+    .menu a{display:flex;align-items:center;gap:6px;position:relative;padding:4px 0;transition:.3s}
+    .menu a::after{content:"";position:absolute;bottom:-3px;left:0;width:100%;height:2px;background:var(--primary);transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+    .menu a:hover::after{transform:scaleX(1)}
+    .menu i{font-size:22px;transition:.3s}
+    .menu a:hover i{transform:scale(1.2)}
+    .fa-instagram{color:#E4405F}.fa-facebook{color:#1877F2}.fa-whatsapp{color:#25D366}
+
+    .menu-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;width:28px;height:22px;justify-content:center;z-index:30}
+    .menu-toggle span{display:block;width:100%;height:3px;background:var(--ink);border-radius:2px;transition:.3s}
+    .menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+    .menu-toggle.active span:nth-child(2){opacity:0}
+    .menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(6px,-6px)}
+
+    @media(max-width:768px){
+      .menu{
+        position:absolute;top:64px;right:0;left:0;
+        background:var(--bg);flex-direction:column;align-items:center;
+        gap:18px;padding:20px 0;border-bottom:1px solid var(--line);
+        transform:translateY(-120%);transition:transform .25s ease;
+      }
+      .menu.show{transform:translateY(0)}
+      .menu-toggle{display:flex}
+    }
+
+    /* Hero con carrusel */
+    .hero{max-width:1140px;margin:30px auto;display:grid;grid-template-columns:1fr 1fr;gap:30px;padding:0 20px}
+    @media(max-width:768px){.hero{grid-template-columns:1fr}}
+
+    .carousel{
+      position:relative;overflow:hidden;border:1px solid var(--line);
+      border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,.1);
+      /* Clave para swipe fluido en móvil: bloquea paneo horizontal por defecto */
+      touch-action: pan-y;
+      user-select:none;
+    }
+    .carousel-track{display:flex;transition:transform .4s ease;will-change:transform}
+    .carousel img{
+      width:100%;flex:0 0 100%;object-fit:contain;max-height:420px;
+      pointer-events:none; /* evita “arrastrar imagen” en desktop */
+    }
+    .carousel-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.5);color:#fff;border:none;border-radius:50%;width:36px;height:36px;cursor:pointer;z-index:10}
+    .carousel-btn.prev{left:8px}.carousel-btn.next{right:8px}
+    .carousel-counter{position:absolute;bottom:8px;right:8px;background:rgba(0,0,0,.6);color:#fff;padding:2px 8px;border-radius:6px;font-size:.85rem}
+
+    .hero-info h1{font-family:var(--sport-font);color:var(--primary);font-size:clamp(28px,4vw,48px);margin-bottom:10px}
+    .hero-info p{margin-bottom:15px;color:var(--muted);font-family:var(--sport-font);font-size:1rem}
+    .price{font-family:var(--sport-font);font-size:1.8rem;color:var(--primary);margin-bottom:16px}
+    .price span{font-size:1rem;color:#999;text-decoration:line-through;margin-left:10px}
+    .btn{display:inline-block;background:var(--primary);color:#fff;padding:14px 26px;border-radius:12px;font-weight:900;transition:.3s;font-family:var(--sport-font)}
+    .btn:hover{background:#941717}
+    @media(max-width:768px){.hero-info{text-align:center}.btn{width:100%;max-width:300px}}
+
+    /* Features */
+    .features{background:#f9f9f9;padding:60px 20px;margin-top:40px}
+    .features h2{text-align:center;margin-bottom:30px;font-family:var(--sport-font);color:var(--primary)}
+    .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;max-width:1140px;margin:auto}
+    .feature{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;text-align:center;box-shadow:0 4px 12px rgba(0,0,0,.08);font-family:var(--sport-font)}
+    .feature i{font-size:28px;color:var(--primary);margin-bottom:10px}
+
+    /* Specs */
+    .specs{max-width:900px;margin:60px auto;padding:0 20px}
+    .specs h2{text-align:center;margin-bottom:20px;font-family:var(--sport-font);color:var(--primary)}
+    table{width:100%;border-collapse:collapse;font-family:var(--sport-font)}
+    td,th{border:1px solid var(--line);padding:12px;text-align:left}
+    th{background:#f0f0f0}
+
+    /* Galería inferior - scroll táctil nativo + drag */
+    .gallery{max-width:1140px;margin:60px auto;padding:0 20px}
+    .gallery h2{text-align:center;margin-bottom:20px;font-family:var(--sport-font);color:var(--primary)}
+    .gallery-track{
+      display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch;scroll-behavior:smooth;
+      cursor:grab; user-select:none; touch-action: pan-y;
+    }
+    .gallery-track:active{cursor:grabbing}
+    .gallery img{width:260px;flex:0 0 auto;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.1);scroll-snap-align:center;pointer-events:none}
+
+    footer{text-align:center;padding:20px;color:#777;margin-top:40px;font-size:.9rem;font-family:var(--sport-font)}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand"><img src="Img/0-removebg-preview.png" alt="Scoot Shop logo"><span>Versatil</span></div>
+      <button class="menu-toggle" aria-label="Menú"><span></span><span></span><span></span></button>
+      <nav class="menu">
+        <a href="index.html"><i class="fas fa-home"></i>Inicio</a>
+        <a href="n7pro.html"><i class="fas fa-box"></i>N7PRO</a>
+        <a href="n7max.html"><i class="fas fa-bolt"></i>N7MAX</a>
+        <a href="#specs"><i class="fas fa-list"></i>Specs</a>
+        <a href="https://www.instagram.com/scootshopping" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/61579248524907" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://wa.me/34666318747" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero con carrusel -->
+  <section class="hero">
+    <div class="carousel" id="carousel">
+      <div class="carousel-track">
+        <img src="Img-N7PRO/1.jpg" alt="N7PRO imagen 1">
+        <img src="Img-N7PRO/2.jpg" alt="N7PRO imagen 2">
+        <img src="Img-N7PRO/3.jpg" alt="N7PRO imagen 3">
+        <img src="Img-N7PRO/4.jpg" alt="N7PRO imagen 4">
+        <img src="Img-N7PRO/5.jpg" alt="N7PRO imagen 5">
+        <img src="Img-N7PRO/6.jpg" alt="N7PRO imagen 6">
+      </div>
+      <button class="carousel-btn prev" aria-label="Anterior">‹</button>
+      <button class="carousel-btn next" aria-label="Siguiente">›</button>
+      <div class="carousel-counter">1/6</div>
+    </div>
+    <div class="hero-info">
+      <h1>N7PRO</h1>
+      <p>El scooter eléctrico ideal para la ciudad. Compacto, ligero y muy fácil de transportar sin perder rendimiento.</p>
+      <div class="price">235 € <span>587,50 €</span></div>
+      <a href="https://wa.me/34666318747" class="btn"><i class="fab fa-whatsapp"></i> Comprar ahora</a>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features">
+    <h2>Características principales</h2>
+    <div class="features-grid">
+      <div class="feature"><i class="fas fa-bolt"></i><p>Motor 350W eficiente</p></div>
+      <div class="feature"><i class="fas fa-road"></i><p>Velocidad máxima 25 km/h</p></div>
+      <div class="feature"><i class="fas fa-battery-half"></i><p>Batería de litio 36V 7.8Ah</p></div>
+      <div class="feature"><i class="fas fa-route"></i><p>Autonomía hasta 30 km</p></div>
+      <div class="feature"><i class="fas fa-mountain"></i><p>Pendiente máxima 15°</p></div>
+      <div class="feature"><i class="fas fa-circle-dot"></i><p>Ruedas 8.5” anti-pinchazo</p></div>
+    </div>
+  </section>
+
+  <!-- Specs -->
+  <section class="specs" id="specs">
+    <h2>Especificaciones técnicas</h2>
+    <table>
+      <tr><th>Motor</th><td>350W</td></tr>
+      <tr><th>Batería</th><td>Litio 36V 7.8Ah</td></tr>
+      <tr><th>Autonomía</th><td>Hasta 30 km</td></tr>
+      <tr><th>Velocidad máxima</th><td>25 km/h</td></tr>
+      <tr><th>Carga máxima</th><td>120 kg</td></tr>
+      <tr><th>Frenos</th><td>Freno delantero eléctrico + freno trasero de disco</td></tr>
+      <tr><th>Peso</th><td>12.5 kg</td></tr>
+      <tr><th>Pendiente máxima</th><td>15°</td></tr>
+      <tr><th>Neumáticos</th><td>8.5” anti-pinchazo</td></tr>
+      <tr><th>Garantía</th><td>70 km o cambio de pieza/vehículo según el caso</td></tr>
+    </table>
+  </section>
+
+  <!-- Galería inferior -->
+  <section class="gallery">
+    <h2>Galería N7PRO</h2>
+    <div class="gallery-track" id="gallery">
+      <img src="Img-N7PRO/1.jpg" alt="N7PRO lateral">
+      <img src="Img-N7PRO/2.jpg" alt="N7PRO detalle manillar">
+      <img src="Img-N7PRO/3.jpg" alt="N7PRO freno disco">
+      <img src="Img-N7PRO/4.jpg" alt="N7PRO diseño compacto">
+      <img src="Img-N7PRO/5.jpg" alt="N7PRO plegado">
+      <img src="Img-N7PRO/6.jpg" alt="N7PRO en ciudad">
+    </div>
+  </section>
+
+  <footer>© <span id="year"></span> SCOOT SHOP — Todos los derechos reservados</footer>
+
+  <script>
+    document.getElementById("year").textContent=new Date().getFullYear();
+
+    // Menú hamburguesa
+    const toggle=document.querySelector('.menu-toggle');
+    toggle.addEventListener('click',()=>{document.querySelector('.menu').classList.toggle('show');toggle.classList.toggle('active');});
+
+    // ---------- Carrusel principal con botones + swipe táctil (Pointer Events + fallback) ----------
+    (function(){
+      const carousel=document.getElementById("carousel");
+      const track=carousel.querySelector(".carousel-track");
+      const slides=[...track.children];
+      const prev=carousel.querySelector(".prev");
+      const next=carousel.querySelector(".next");
+      const counter=carousel.querySelector(".carousel-counter");
+      let i=0;
+
+      const snap=(idx,{animate=true}={})=>{
+        i=(idx+slides.length)%slides.length;
+        if(!animate) track.style.transition='none';
+        track.style.transform=`translateX(${-i*100}%)`;
+        counter.textContent=`${i+1}/${slides.length}`;
+        if(!animate){ requestAnimationFrame(()=>track.style.transition='transform .4s ease'); }
+      };
+      prev.addEventListener('click',()=>snap(i-1));
+      next.addEventListener('click',()=>snap(i+1));
+      snap(0);
+
+      // Drag/Swipe con Pointer Events
+      let dragging=false, startX=0, currentX=0, pointerId=null;
+      const threshold=()=>Math.max(50, carousel.clientWidth*0.15);
+
+      const onPointerDown=(e)=>{
+        dragging=true; pointerId=e.pointerId;
+        startX=e.clientX; currentX=startX;
+        track.style.transition='none';
+        track.setPointerCapture?.(pointerId);
+      };
+      const onPointerMove=(e)=>{
+        if(!dragging) return;
+        if(pointerId!=null && e.pointerId!==pointerId) return;
+        currentX=e.clientX;
+        const dx=currentX-startX;
+        track.style.transform=`translateX(calc(${-i*100}% + ${dx}px))`;
+      };
+      const onPointerUp=(e)=>{
+        if(!dragging) return;
+        if(pointerId!=null && e.pointerId!==pointerId) return;
+        dragging=false;
+        const dx=currentX-startX;
+        if(Math.abs(dx)>threshold()){
+          snap(i + (dx<0?1:-1), {animate:true});
+        }else{
+          snap(i, {animate:true});
+        }
+        pointerId=null;
+      };
+
+      if(window.PointerEvent){
+        carousel.addEventListener('pointerdown', onPointerDown);
+        window.addEventListener('pointermove', onPointerMove);
+        window.addEventListener('pointerup', onPointerUp);
+        window.addEventListener('pointercancel', onPointerUp);
+      }else{
+        // Fallback Touch
+        let startT=0, currT=0;
+        carousel.addEventListener('touchstart', (e)=>{
+          startT=e.touches[0].clientX; currT=startT; track.style.transition='none';
+        }, {passive:true});
+        carousel.addEventListener('touchmove', (e)=>{
+          currT=e.touches[0].clientX;
+          const dx=currT-startT;
+          track.style.transform=`translateX(calc(${-i*100}% + ${dx}px))`;
+        }, {passive:false});
+        carousel.addEventListener('touchend', (e)=>{
+          const endX=e.changedTouches[0].clientX;
+          const dx=endX-startT;
+          if(Math.abs(dx)>threshold()){ snap(i + (dx<0?1:-1)); } else { snap(i); }
+        });
+      }
+
+      // Navegación con teclado (accesibilidad)
+      carousel.setAttribute('tabindex','0');
+      carousel.addEventListener('keydown',e=>{
+        if(e.key==='ArrowLeft') snap(i-1);
+        if(e.key==='ArrowRight') snap(i+1);
+      });
+    })();
+
+    // ---------- Drag para galería inferior (táctil + ratón) ----------
+    (function(){
+      const scroller=document.getElementById("gallery");
+      let isDown=false, startX=0, startScroll=0;
+
+      // Ratón
+      scroller.addEventListener('mousedown', e=>{
+        isDown=true; scroller.classList.add('dragging');
+        startX=e.pageX - scroller.offsetLeft; startScroll=scroller.scrollLeft;
+      });
+      window.addEventListener('mousemove', e=>{
+        if(!isDown) return;
+        e.preventDefault();
+        const x=e.pageX - scroller.offsetLeft;
+        scroller.scrollLeft = startScroll - (x - startX)*1.5;
+      });
+      window.addEventListener('mouseup', ()=>{isDown=false; scroller.classList.remove('dragging');});
+
+      // Táctil (deja el scroll nativo suave, pero añade “kinetic” simple)
+      let tStart=0, sStart=0;
+      scroller.addEventListener('touchstart', e=>{
+        tStart=e.touches[0].pageX; sStart=scroller.scrollLeft;
+      }, {passive:true});
+      scroller.addEventListener('touchmove', e=>{
+        const x=e.touches[0].pageX;
+        scroller.scrollLeft = sStart - (x - tStart)*1.2;
+      }, {passive:true});
+    })();
+  </script>
+</body>
+</html>

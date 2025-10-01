@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SCOOT SHOP — N7MAX</title>
+  <meta name="description" content="Descubre el N7MAX de Scoot Shop: máxima potencia, autonomía y seguridad para tu movilidad urbana. Garantía oficial y envío rápido.">
+
+  <!-- Tipografías (mismas que index) -->
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap" rel="stylesheet">
+  <!-- Iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    :root{
+      --sport-font:'Russo One',sans-serif;
+      --logo-font:'Tangerine',cursive;
+      --bg:#fff; --ink:#141518; --line:#e6e9ef;
+      --primary:#b91e1e; --muted:#555;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:var(--sport-font);background:var(--bg);color:var(--ink);line-height:1.5}
+    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+
+    /* Header (idéntico al index) */
+    header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+    .nav{display:flex;justify-content:space-between;align-items:center;padding:4px 0;width:min(1140px,94vw);margin:auto}
+    .brand{display:flex;align-items:center;gap:8px}
+    .brand img{height:80px}
+    .brand span{font-family:var(--logo-font);font-size:2rem;color:var(--primary)}
+
+    .menu{display:flex;gap:16px;align-items:center;font-weight:900;text-transform:uppercase;font-size:.9rem}
+    .menu a{display:flex;align-items:center;gap:6px;position:relative;padding:4px 0;transition:.3s}
+    .menu a::after{content:"";position:absolute;bottom:-3px;left:0;width:100%;height:2px;background:var(--primary);transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+    .menu a:hover::after{transform:scaleX(1)}
+    .menu i{font-size:22px;transition:.3s}
+    .menu a:hover i{transform:scale(1.2)}
+    .fa-instagram{color:#E4405F}.fa-facebook{color:#1877F2}.fa-whatsapp{color:#25D366}
+
+    .menu-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;width:28px;height:22px;justify-content:center;z-index:30}
+    .menu-toggle span{display:block;width:100%;height:3px;background:var(--ink);border-radius:2px;transition:.3s}
+    .menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+    .menu-toggle.active span:nth-child(2){opacity:0}
+    .menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(6px,-6px)}
+
+    @media(max-width:768px){
+      .menu{position:absolute;top:64px;right:0;left:0;background:var(--bg);flex-direction:column;align-items:center;gap:18px;padding:20px 0;border-bottom:1px solid var(--line);transform:translateY(-120%);transition:transform .25s ease}
+      .menu.show{transform:translateY(0)}
+      .menu-toggle{display:flex}
+    }
+
+    /* Hero con carrusel */
+    .hero{max-width:1140px;margin:30px auto;display:grid;grid-template-columns:1fr 1fr;gap:30px;padding:0 20px}
+    @media(max-width:768px){.hero{grid-template-columns:1fr}}
+
+    .carousel{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,.1)}
+    .carousel-track{
+      display:flex;transition:transform .35s ease;
+      /* Clave para swipe fluido sin bloquear scroll vertical */
+      touch-action: pan-y;
+      cursor: grab;
+    }
+    .carousel-track.dragging{cursor:grabbing}
+    .carousel img{
+      width:100%;flex:0 0 100%;object-fit:contain;max-height:420px;background:#fff;
+      -webkit-user-drag:none;user-select:none;
+    }
+    .carousel-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.5);color:#fff;border:none;border-radius:50%;width:36px;height:36px;cursor:pointer;z-index:10}
+    .carousel-btn.prev{left:8px}.carousel-btn.next{right:8px}
+    .carousel-counter{position:absolute;bottom:8px;right:8px;background:rgba(0,0,0,.6);color:#fff;padding:2px 8px;border-radius:6px;font-size:.85rem}
+
+    .hero-info h1{font-family:var(--sport-font);color:var(--primary);font-size:clamp(28px,4vw,48px);margin-bottom:10px}
+    .hero-info p{margin-bottom:15px;color:var(--muted)}
+    .price{font-family:var(--sport-font);font-size:1.8rem;color:var(--primary);margin-bottom:16px}
+    .price span{font-size:1rem;color:#999;text-decoration:line-through;margin-left:10px}
+    .btn{display:inline-block;background:var(--primary);color:#fff;padding:14px 26px;border-radius:12px;font-weight:900;transition:.3s;font-family:var(--sport-font)}
+    .btn:hover{background:#941717}
+    @media(max-width:768px){.hero-info{text-align:center}.btn{width:100%;max-width:300px}}
+
+    /* Features */
+    .features{background:#f9f9f9;padding:60px 20px;margin-top:40px}
+    .features h2{text-align:center;margin-bottom:30px;font-family:var(--sport-font);color:var(--primary)}
+    .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;max-width:1140px;margin:auto}
+    .feature{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;text-align:center;box-shadow:0 4px 12px rgba(0,0,0,.08);font-family:var(--sport-font)}
+    .feature i{font-size:28px;color:var(--primary);margin-bottom:10px}
+
+    /* Specs */
+    .specs{max-width:900px;margin:60px auto;padding:0 20px}
+    .specs h2{text-align:center;margin-bottom:20px;font-family:var(--sport-font);color:var(--primary)}
+    table{width:100%;border-collapse:collapse;font-family:var(--sport-font)}
+    td,th{border:1px solid var(--line);padding:12px;text-align:left}
+    th{background:#f0f0f0}
+
+    /* Galería inferior */
+    .gallery{max-width:1140px;margin:60px auto;padding:0 20px}
+    .gallery h2{text-align:center;margin-bottom:20px;font-family:var(--sport-font);color:var(--primary)}
+    .gallery-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory}
+    .gallery img{width:260px;flex:0 0 auto;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.1);scroll-snap-align:center}
+
+    footer{text-align:center;padding:20px;color:#777;margin-top:40px;font-size:.9rem;font-family:var(--sport-font)}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand"><img src="Img/0-removebg-preview.png" alt="Scoot Shop logo"><span>Versatil</span></div>
+      <button class="menu-toggle" aria-label="Menú"><span></span><span></span><span></span></button>
+      <nav class="menu">
+        <a href="index.html"><i class="fas fa-home"></i>Inicio</a>
+        <a href="n7pro.html"><i class="fas fa-box"></i>N7PRO</a>
+        <a href="n7max.html"><i class="fas fa-bolt"></i>N7MAX</a>
+        <a href="#specs"><i class="fas fa-list"></i>Specs</a>
+        <a href="https://www.instagram.com/scootshopping" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/61579248524907" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://wa.me/34666318747" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero con carrusel -->
+  <section class="hero">
+    <div class="carousel" id="heroCarousel">
+      <div class="carousel-track">
+        <img src="Img-N7MAX/1.jpg" alt="N7MAX imagen 1">
+        <img src="Img-N7MAX/2.jpg" alt="N7MAX imagen 2">
+        <img src="Img-N7MAX/3.jpg" alt="N7MAX imagen 3">
+        <img src="Img-N7MAX/4.jpg" alt="N7MAX imagen 4">
+        <img src="Img-N7MAX/5.jpg" alt="N7MAX imagen 5">
+      </div>
+      <button class="carousel-btn prev" aria-label="Anterior">‹</button>
+      <button class="carousel-btn next" aria-label="Siguiente">›</button>
+      <div class="carousel-counter">1/5</div>
+    </div>
+
+    <div class="hero-info">
+      <h1>N7MAX</h1>
+      <p>El scooter eléctrico más potente de la Serie N. Diseñado para quienes buscan velocidad, autonomía y seguridad en sus desplazamientos urbanos y suburbanos.</p>
+      <div class="price">375 € <span>937,50 €</span></div>
+      <a href="https://wa.me/34666318747" class="btn"><i class="fab fa-whatsapp"></i> Comprar ahora</a>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features">
+    <h2>Características principales</h2>
+    <div class="features-grid">
+      <div class="feature"><i class="fas fa-bolt"></i><p>Motor 800W con gran potencia</p></div>
+      <div class="feature"><i class="fas fa-road"></i><p>Velocidad máxima 55 km/h</p></div>
+      <div class="feature"><i class="fas fa-battery-full"></i><p>Batería de litio 52V 20Ah</p></div>
+      <div class="feature"><i class="fas fa-route"></i><p>Autonomía hasta 70 km</p></div>
+      <div class="feature"><i class="fas fa-mountain"></i><p>Pendiente máxima 25°</p></div>
+      <div class="feature"><i class="fas fa-shield-alt"></i><p>Frenos de disco doble + ABS electrónico</p></div>
+    </div>
+  </section>
+
+  <!-- Specs -->
+  <section class="specs" id="specs">
+    <h2>Especificaciones técnicas</h2>
+    <table>
+      <tr><th>Motor</th><td>800W</td></tr>
+      <tr><th>Batería</th><td>Litio 52V 20Ah</td></tr>
+      <tr><th>Autonomía</th><td>Hasta 70 km</td></tr>
+      <tr><th>Velocidad máxima</th><td>55 km/h</td></tr>
+      <tr><th>Carga máxima</th><td>150 kg</td></tr>
+      <tr><th>Frenos</th><td>Disco delantero y trasero + ABS electrónico</td></tr>
+      <tr><th>Peso</th><td>27 kg</td></tr>
+      <tr><th>Pendiente máxima</th><td>25°</td></tr>
+      <tr><th>Neumáticos</th><td>10” anti-pinchazo</td></tr>
+      <tr><th>Garantía</th><td>70 km o cambio de pieza/vehículo según el caso</td></tr>
+    </table>
+  </section>
+
+  <!-- Galería inferior -->
+  <section class="gallery">
+    <h2>Galería N7MAX</h2>
+    <div class="gallery-track">
+      <img src="Img-N7MAX/6.jpg" alt="N7MAX batería">
+      <img src="Img-N7MAX/7.jpg" alt="N7MAX frenos disco">
+      <img src="Img-N7MAX/8.jpg" alt="N7MAX suspensión">
+      <img src="Img-N7MAX/9.jpg" alt="N7MAX potencia">
+      <img src="Img-N7MAX/10.jpg" alt="N7MAX diseño trasero">
+    </div>
+  </section>
+
+  <footer>© <span id="year"></span> SCOOT SHOP — Todos los derechos reservados</footer>
+
+  <script>
+    // Año footer
+    document.getElementById("year").textContent=new Date().getFullYear();
+
+    // Menú hamburguesa
+    const toggle=document.querySelector('.menu-toggle');
+    toggle.addEventListener('click',()=>{document.querySelector('.menu').classList.toggle('show');toggle.classList.toggle('active');});
+
+    // -------- Carrusel con swipe táctil real (Pointer Events) --------
+    function makeCarousel(el){
+      const track=el.querySelector('.carousel-track');
+      const slides=[...track.children];
+      const prev=el.querySelector('.prev');
+      const next=el.querySelector('.next');
+      const counter=el.querySelector('.carousel-counter');
+      let i=0;
+
+      function snap(){
+        track.style.transition='transform .35s ease';
+        track.style.transform=`translateX(${-i*100}%)`;
+        if(counter) counter.textContent=`${i+1}/${slides.length}`;
+      }
+      function go(n){
+        i=(n+slides.length)%slides.length;
+        snap();
+      }
+      prev?.addEventListener('click',()=>go(i-1));
+      next?.addEventListener('click',()=>go(i+1));
+      snap();
+
+      // --- Swipe
+      let dragging=false, startX=0, lastX=0, vx=0, raf=null;
+      const width=()=>el.clientWidth;
+
+      // Actualiza transform durante el drag
+      function renderDrag(dx){
+        track.style.transition='none';
+        track.style.transform=`translateX(calc(${-i*100}% + ${dx}px))`;
+      }
+
+      const onPointerDown=(e)=>{
+        if(e.pointerType==='touch' || e.pointerType==='pen' || e.pointerType==='mouse'){
+          dragging=true; startX=e.clientX; lastX=e.clientX; vx=0;
+          track.classList.add('dragging');
+          track.setPointerCapture?.(e.pointerId);
+          track.style.willChange='transform';
+        }
+      };
+      const onPointerMove=(e)=>{
+        if(!dragging) return;
+        const x=e.clientX;
+        const dx=x-startX;
+        // pequeña inercia: velocidad simple
+        vx = x - lastX;
+        lastX=x;
+        renderDrag(dx);
+        e.preventDefault();
+      };
+      const onPointerUp=(e)=>{
+        if(!dragging) return;
+        dragging=false;
+        track.classList.remove('dragging');
+        track.style.willChange='auto';
+
+        const dx = lastX - startX;
+        const fast = Math.abs(vx) > 6; // gesto rápido
+        const far = Math.abs(dx) > width()*0.15; // arrastre suficiente
+
+        if(fast || far){
+          if(dx<0) i++; else i--;
+        }
+        // Limita y encaja
+        i=(i+slides.length)%slides.length;
+        snap();
+      };
+
+      // Listeners pointer
+      track.addEventListener('pointerdown',onPointerDown,{passive:false});
+      window.addEventListener('pointermove',onPointerMove,{passive:false});
+      window.addEventListener('pointerup',onPointerUp,{passive:false});
+      window.addEventListener('pointercancel',onPointerUp,{passive:false});
+
+      // Previene arrastrar imagen por defecto
+      slides.forEach(img=>{
+        img.draggable=false;
+      });
+
+      // Recalcular al redimensionar
+      window.addEventListener('resize',()=>snap());
+    }
+
+    // Activa el carrusel principal
+    makeCarousel(document.getElementById('heroCarousel'));
+  </script>
+</body>
+</html>
